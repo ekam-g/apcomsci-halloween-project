@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class Frame1 extends JPanel {
     private int x;
@@ -102,11 +104,17 @@ class Scare {
         frame.setSize(500, 500);
 
         Frame1 ghostPanel = new Frame1(150,150,200, 240, 38);
-        Frame2 panel2 = new Frame2(150,150,200, 240, 38);
-
+        JButton button = new JButton("Scary Buttion");
+        button.setBounds(180, 400, 140,50);
+        ActionListener action = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "YOU WILL GET REJECTED BY EVERY COLLAGE YOU APPLY TO!");
+            }
+        };
+        frame.add(button);
         frame.add(ghostPanel);
-        JButton button = new JButton("Start Counting");
-        button.addActionListener(null);
+        button.addActionListener(action);
         frame.setVisible(true);
     }
 }
